@@ -7,8 +7,11 @@ public class mapGenerator : MonoBehaviour
     [SerializeField] private int mapWidth;
     [SerializeField] private int mapHeight;
 
-    private List<GameObject> mapTiles = new List<GameObject>();
-    private List<GameObject> pathTiles = new List<GameObject>();
+    public static List<GameObject> mapTiles = new List<GameObject>();
+    public static List<GameObject> pathTiles = new List<GameObject>();
+
+    public static GameObject startTile;
+    public static GameObject endTile;
 
     private bool reachedX = false;
     private bool reachedY = false;
@@ -18,6 +21,8 @@ public class mapGenerator : MonoBehaviour
     private int nextIndex;
 
     public Color pathColor;
+    public Color startColor;
+    public Color endColor;
 
     private void Start()
     {
@@ -89,8 +94,8 @@ public class mapGenerator : MonoBehaviour
         List<GameObject> topEdgeTiles = getTopEdgeTiles();
         List<GameObject> bottomEdgeTiles = getBottomEdgeTiles();
 
-        GameObject startTile = topEdgeTiles[Random.Range(0, mapWidth)];
-        GameObject endTile = bottomEdgeTiles[Random.Range(0, mapWidth)];
+        startTile = topEdgeTiles[Random.Range(0, mapWidth)];
+        endTile = bottomEdgeTiles[Random.Range(0, mapWidth)];
 
         currentTile = startTile;
         moveDown();
@@ -137,12 +142,15 @@ public class mapGenerator : MonoBehaviour
                 reachedY = true;
             }
         }
-        
+
         pathTiles.Add(endTile);
 
         foreach (GameObject pathTile in pathTiles)
         {
             pathTile.GetComponent<SpriteRenderer>().color = pathColor;
         }
+
+        startTile.GetComponent<SpriteRenderer>().color = startColor;
+        endTile.GetComponent<SpriteRenderer>().color = endColor;
     }
 }
