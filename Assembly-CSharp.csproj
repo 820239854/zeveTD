@@ -41,8 +41,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Enemys.cs" />
+     <Compile Include="Assets\Scripts\Tower.cs" />
      <Compile Include="Assets\Scripts\mapGenerator.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\BasicTower.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Sprites" />

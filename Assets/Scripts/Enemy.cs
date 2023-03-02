@@ -13,6 +13,11 @@ public class Enemy : MonoBehaviour
 
     private GameObject targetTile;
 
+    private void Awake()
+    {
+        Enemys.enemies.Add(gameObject);
+    }
+
     private void Start()
     {
         initializeEnemy();
@@ -23,7 +28,7 @@ public class Enemy : MonoBehaviour
         targetTile = mapGenerator.startTile;
     }
     
-    private void takeDamage(float damage)
+    public void takeDamage(float damage)
     {
         enemyHealth -= damage;
         if (enemyHealth <= 0)
@@ -34,6 +39,7 @@ public class Enemy : MonoBehaviour
     
     private void die()
     {
+        Enemys.enemies.Remove(gameObject);
         Destroy(gameObject);
     }
 
@@ -59,7 +65,5 @@ public class Enemy : MonoBehaviour
     {
         checkPosition();
         moveEnemy();
-        
-        takeDamage(0.1f);
     }
 }
