@@ -3,16 +3,13 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField]
-    private float range;
-    [SerializeField]
-    private float damage;
-    [SerializeField]
-    private float timeBetweenShots;
+    [SerializeField] private float range;
+    [SerializeField] private float damage;
+    [SerializeField] private float timeBetweenShots;
 
     private float nextTimeToShoot;
 
-    private GameObject currentTarget;
+    public GameObject currentTarget;
 
     private void Start()
     {
@@ -47,7 +44,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private void shoot()
+    protected virtual void shoot()
     {
         Enemy enemyScript = currentTarget.GetComponent<Enemy>();
         enemyScript.takeDamage(damage);

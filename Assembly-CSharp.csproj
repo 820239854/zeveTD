@@ -46,6 +46,8 @@
      <Compile Include="Assets\Scripts\mapGenerator.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\BasicTower.cs" />
+     <Compile Include="Assets\Scripts\BarrelRotation.cs" />
+     <Compile Include="Assets\Scripts\Bullet.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Sprites" />
