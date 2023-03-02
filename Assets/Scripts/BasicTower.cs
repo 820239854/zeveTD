@@ -9,6 +9,5 @@ public class BasicTower : Tower
     {
         base.shoot();
         GameObject newBullet = Instantiate(bulletPrefab,barrel.position,pivot.rotation);
-        
     }
 }
