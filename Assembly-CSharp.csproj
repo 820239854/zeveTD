@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\BarrelRotation.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\RoundController.cs" />
+     <Compile Include="Assets\Scripts\PlacementManager.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Scripts" />
      <Folder Include="Assets\Sprites" />
