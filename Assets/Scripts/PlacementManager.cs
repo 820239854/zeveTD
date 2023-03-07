@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
 {
+    public ShopManager shopManager;
     public GameObject basicTower;
     private GameObject dummyPlacement;
     public Camera cam;
@@ -57,11 +58,19 @@ public class PlacementManager : MonoBehaviour
         {
             if (CheckForTower() == false)
             {
-                GameObject newTower = Instantiate(basicTower);
-                newTower.layer = towerLayer;
-                newTower.transform.position = hoverTile.transform.position;
-
-                EndBuilding();
+                if (shopManager.CanBuyBasicTower(basicTower))
+                {
+                    GameObject newTower = Instantiate(basicTower);
+                    newTower.layer = towerLayer;
+                    newTower.transform.position = hoverTile.transform.position;
+                    EndBuilding();
+                    
+                    shopManager.BuyTower(basicTower);
+                }
+                else
+                {
+                    Debug.Log("Not enough money");
+                }
             }
         }
     }
